@@ -1,0 +1,359 @@
+:root {
+    --bg-color: #000000;
+    --neon-green: #0f0;
+    /* Classic Matrix green */
+    --neon-dark: #008f11;
+    --neon-glab: #03A062;
+    --terminal-font: 'Share Tech Mono', monospace, Courier, "Courier New";
+    --glow: 0 0 10px rgba(0, 255, 0, 0.5), 0 0 20px rgba(0, 255, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    color: var(--neon-green);
+    font-family: var(--terminal-font);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--neon-dark);
+    border: 1px solid var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-green);
+}
+
+/* Background Canvas */
+#matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+}
+
+/* CRT Scanlines Overlay */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0) 50%,
+            rgba(0, 0, 0, 0.2) 50%,
+            rgba(0, 0, 0, 0.2));
+    background-size: 100% 4px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Typography & Core Styling */
+h1,
+h2,
+h3,
+h4,
+a,
+p {
+    text-shadow: var(--glow);
+}
+
+a {
+    color: var(--neon-green);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #fff;
+    text-shadow: 0 0 15px #fff, 0 0 30px var(--neon-green);
+}
+
+.terminal-container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 3rem 5rem;
+    position: relative;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.8);
+    /* Semi-transparent background for readability */
+    border: 1px solid var(--neon-dark);
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.1) inset;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.terminal-header {
+    margin-bottom: 3rem;
+    border-bottom: 1px dashed var(--neon-dark);
+    padding-bottom: 1rem;
+}
+
+.matrix-title {
+    font-size: min(2.5rem, 8vw);
+    word-break: break-word;
+}
+
+.matrix-subtitle {
+    font-size: min(1.2rem, 5vw);
+    color: var(--neon-dark);
+    margin-top: 0.5rem;
+}
+
+/* Navigation */
+.terminal-nav {
+    margin-bottom: 4rem;
+}
+
+.terminal-nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.terminal-nav li a {
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.terminal-nav li a::before {
+    content: '[';
+    opacity: 0;
+    transition: opacity 0.3s;
+    margin-right: 5px;
+}
+
+.terminal-nav li a::after {
+    content: ']';
+    opacity: 0;
+    transition: opacity 0.3s;
+    margin-left: 5px;
+}
+
+.terminal-nav li a:hover::before,
+.terminal-nav li a:hover::after {
+    opacity: 1;
+}
+
+/* Sections */
+.terminal-section {
+    margin-bottom: 5rem;
+    transition: opacity 0.5s ease;
+}
+
+.terminal-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-left: 3px solid var(--neon-green);
+    padding-left: 10px;
+}
+
+.command-output {
+    padding-left: 1.5rem;
+}
+
+/* Typewriter Class */
+.typewriter-text {
+    margin-bottom: 1rem;
+    min-height: 1.6em;
+    /* Prevent layout shift */
+}
+
+/* Blinking Cursor */
+.cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1.2em;
+    background-color: var(--neon-green);
+    vertical-align: middle;
+    animation: blink 1s step-end infinite;
+    margin-left: 5px;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.skill-item {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--neon-dark);
+    background: rgba(0, 255, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+    background: var(--neon-dark);
+    color: var(--bg-color);
+    box-shadow: 0 0 10px var(--neon-green);
+}
+
+.skill-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Project Logs */
+.logs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.log-entry {
+    border: 1px solid var(--neon-dark);
+    padding: 1.5rem;
+    background: rgba(0, 255, 0, 0.02);
+    position: relative;
+}
+
+.log-entry::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--neon-dark);
+}
+
+.log-date {
+    font-size: 0.9rem;
+    color: var(--neon-dark);
+    margin-bottom: 0.5rem;
+}
+
+.log-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Contact Setup */
+.contact-terminal p {
+    margin-bottom: 1.5rem;
+}
+
+.matrix-btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border: 1px solid var(--neon-green);
+    background: transparent;
+    color: var(--neon-green);
+    font-family: inherit;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.2) inset;
+}
+
+.matrix-btn:hover {
+    background: var(--neon-green);
+    color: var(--bg-color);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
+}
+
+/* Footer */
+.terminal-footer {
+    margin-top: auto;
+    padding-top: 3rem;
+    border-top: 1px dashed var(--neon-dark);
+    font-size: 0.9rem;
+    color: var(--neon-dark);
+    text-align: center;
+}
+
+.terminal-footer p {
+    margin-bottom: 0.5rem;
+}
+
+/* Visibility Control for Scroll Reveal */
+.hidden {
+    opacity: 0;
+}
+
+.show {
+    opacity: 1;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .terminal-container {
+        width: 100%;
+        padding: 1.5rem;
+        border: none;
+        /* Remove border on mobile to save space */
+        box-shadow: none;
+        /* Disable box-shadow on very small screens to improve performance and view */
+        margin: 0;
+    }
+
+    .terminal-nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .matrix-title {
+        font-size: 2rem;
+    }
+
+    .terminal-section {
+        margin-bottom: 3rem;
+    }
+
+    .terminal-section h3 {
+        font-size: 1.3rem;
+    }
+
+    .skill-item {
+        padding: 0.4rem 0.8rem;
+    }
+
+    .skill-name {
+        font-size: 1rem;
+    }
+
+    .matrix-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
