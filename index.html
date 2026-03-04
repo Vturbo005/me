@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishnu Ch | Terminal Matrix</title>
+    <meta name="description"
+        content="Matrix-themed portfolio of Vishnu Ch, a Diploma Computer Engineering student passionate about tech.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Matrix Canvas Background -->
+    <canvas id="matrix"></canvas>
+
+    <!-- CRT Scanline Overlay -->
+    <div class="scanlines"></div>
+
+    <!-- Main Terminal Container for Content -->
+    <div class="terminal-container">
+
+        <header class="terminal-header">
+            <h1 class="matrix-title">System.out.println("Vishnu Ch");</h1>
+            <h2 class="matrix-subtitle">> Diploma Computer Engineering Student_</h2>
+        </header>
+
+        <nav class="terminal-nav">
+            <ul>
+                <li><a href="#about">> Initiate [about_module]</a></li>
+                <li><a href="#skills">> Execute [skills_matrix]</a></li>
+                <li><a href="#logs">> Access [project_logs]</a></li>
+                <li><a href="#contact">> Establish [connection]</a></li>
+            </ul>
+        </nav>
+
+        <main class="terminal-main">
+
+            <section id="about" class="terminal-section hidden">
+                <h3>> [about_module] . . . loading</h3>
+                <div class="command-output">
+                    <p class="typewriter-text" data-text="Identifying Entity: Vishnu Ch."></p>
+                    <p class="typewriter-text" data-text="Status: Diploma in Computer Engineering."></p>
+                    <p class="typewriter-text"
+                        data-text="Directive: Exploring the depths of technology, mastering frameworks, and crafting digital solutions. My core programming revolves around finding efficient, elegant algorithms to solve complex real-world problems.">
+                    </p>
+                </div>
+            </section>
+
+            <section id="skills" class="terminal-section hidden">
+                <h3>> root@vishnu:~# ./list_skills.sh</h3>
+                <div class="command-output skills-grid">
+                    <div class="skill-item">
+                        <span class="skill-name">HTML/CSS</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">JavaScript</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Prog_Logic</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="logs" class="terminal-section hidden">
+                <h3>> cd /var/log/projects/</h3>
+                <div class="command-output logs-container">
+                    <article class="log-entry">
+                        <div class="log-date">[SysTime: 1716508800]</div>
+                        <h4 class="log-title">Project: Web Interface Overhaul</h4>
+                        <p class="log-desc">Implemented a responsive, high-performance user interface focusing on
+                            dynamic component rendering and seamless UX.</p>
+                    </article>
+                    <article class="log-entry">
+                        <div class="log-date">[SysTime: 1713052800]</div>
+                        <h4 class="log-title">Project: Algorithm Optimization</h4>
+                        <p class="log-desc">Refactored legacy sorting algorithms within a simulated environment,
+                            reducing processing overhead by 40%.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="contact" class="terminal-section hidden">
+                <h3>> ping -c 3 host.communication</h3>
+                <div class="command-output contact-terminal">
+                    <p>Connection established. Ready to transmit data packets.</p>
+                    <p>Looking for a developer to integrate into your mainframe?</p>
+                    <a href="mailto:hello@example.com" class="matrix-btn">[ SEND_MESSAGE ]</a>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="terminal-footer">
+            <p>> root@vishnu:~# exit</p>
+            <p>Connection closed by foreign host. &copy; 2026 Vishnu Ch.</p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
